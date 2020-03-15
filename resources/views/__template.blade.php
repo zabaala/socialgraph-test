@@ -11,6 +11,7 @@
     <style>
         body {
             border-top: 5px solid dodgerblue;
+            background: #f6f8fa;
         }
     </style>
 </head>
