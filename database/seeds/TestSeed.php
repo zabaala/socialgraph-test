@@ -213,9 +213,13 @@ class TestSeed extends Seeder
     {
         $users = $this->usersData();
 
+        \Schema::disableForeignKeyConstraints();
+
         foreach ($users as $user) {
             User::create($user);
         }
+
+        \Schema::enableForeignKeyConstraints();
 
         $this->command->info('Success: Great... Database seeded with success');
     }

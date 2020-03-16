@@ -42,7 +42,7 @@ class SuggestedCountriesService implements ServiceInterface
             ])
             ->leftJoin(\DB::raw('user_cities as uc2'), function ($join) {
                 $join->on('user_cities.name', '=', 'uc2.name');
-                $join->on(\DB::raw('uc2.user_id'), '=', $this->user_id);
+                $join->on(\DB::raw('uc2.user_id'), '=', \DB::raw($this->user_id));
             })
             ->whereNull('uc2.user_id')
             ->groupBy('user_cities.name');

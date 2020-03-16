@@ -54,7 +54,7 @@ class SuggestedConnectionsService implements ServiceInterface
                 '=',
                 'user_connections.friend_id')
             ->where('user_connections.user_id', '=', $this->user_id)
-            ->where('uc2.user_id', '!=', \DB::raw('me'))
+            ->where('uc2.user_id', '!=', 'user_connections.user_id')
             ->groupBy('uc2.user_id')
             ->having('mutual_friend_count', '>=', 2);
 
